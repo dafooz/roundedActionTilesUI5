@@ -1,0 +1,84 @@
+.roundedActionTile {
+	position: absolute;
+	top: 0;
+	left: 0;
+	border: 1px solid #dddddd;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+	background-color: #ffffff;
+	display: inline-block;
+	transition-property: transform3d;
+	transition-duration: 0.2s;
+	margin: 2rem;
+	border-radius: 5rem;
+	width: 10rem !important;
+	height: 10rem !important;
+	outline: 0;
+}
+
+
+.roundedActionTileContent {
+	overflow: hidden;
+	width: 12rem;
+	height: 12rem;
+}
+
+.roundedActionTileTopRow {
+	height: 6rem;
+	padding: 1rem 1rem 0 1rem;
+	margin-bottom: 1rem;
+}
+
+.roundedActionTileIcon{
+  width: 4rem !important;
+  height: 4rem !important;
+  line-height: 4rem !important;
+  font-size: 4rem !important;
+  padding-left: 2rem !important;
+  padding-top: 1.5rem !important;
+}
+
+.roundedActionTileActionIcon{
+	margin-top:  0.5625rem;
+  	margin-left:  0.5625rem;
+}
+
+.roundedActionTileBottomRow {
+	height: 2rem;
+	padding: 0 1rem 1rem 1rem;
+}
+
+.roundedActionTileTitle {
+	line-height: 0.8rem;
+	vertical-align: top;
+	text-align: center;
+	font-size: 0.6875rem;
+	height: 0.9375rem;
+	width: 100%;
+	overflow: hidden;
+	word-break: break-word;
+}
+
+.actionItem {
+	width: 3.125rem;
+	height: 3.125rem;
+	position: absolute;
+	border: 1px solid;
+	border-radius: 5rem;
+	top: 3.438rem;
+	left: 3.438rem;
+}
+
+.innerActionItem{
+	width: 3.125rem;
+	height: 3.125rem;
+}
+
+.actionHidden{	
+	display:none !important;
+}
+
+.defaultActionClass{
+	color: #007cc0;
+	border: 1px solid #007cc0; 
+	background-color: rgb(255, 255, 255);
+}

@@ -1,0 +1,12 @@
+.sapMGlobalBackgroundColor{
+	background-color: #f2f2f2;
+	background-image: url('DSC03996-40.jpg');
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.exampleClass1{
+	color: red !important;
+	border: 1px solid green !important; 
+	background-color: #dedede !important;
+}
