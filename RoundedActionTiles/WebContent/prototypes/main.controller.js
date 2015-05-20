@@ -10,10 +10,12 @@ sap.ui.controller("prototypes.main", {
 								{
 									title : "Add",
 									icon : "add",
-									cssClass: "exampleClass1"
+									cssClass: "exampleClass1",
+									actionTag: "Tile 1 - Action 1"
 								}, {
 									title : "Browse",
-									icon : "search"
+									icon : "search",
+									actionTag: "Tile 1 - Action 2"
 								}
 					]
 				}, {
@@ -22,9 +24,11 @@ sap.ui.controller("prototypes.main", {
 					iconColor : "#54B345",
 					options : [
 								{
-									icon : "add"
+									icon : "add",
+									actionTag: "Tile 2 - Action 1"
 								}, {
-									icon : "search"
+									icon : "search",
+									actionTag: "Tile 2 - Action 2"
 								}
 					]
 				}, {
@@ -33,11 +37,14 @@ sap.ui.controller("prototypes.main", {
 					cssClass: "exampleClass1",
 					options : [
 								{
-									icon : "add"
+									icon : "add",
+									actionTag: "Tile 3 - Action 1"
 								}, {
-									icon : "search"
+									icon : "search",
+									actionTag: "Tile 3 - Action 2"
 								}, {
-									icon : "delete"
+									icon : "delete",
+									actionTag: "Tile 3 - Action 3"
 								}
 					]
 				}, {
@@ -45,13 +52,17 @@ sap.ui.controller("prototypes.main", {
 					icon : "settings",
 					options : [
 								{
-									icon : "employee"
+									icon : "employee",
+									actionTag: "Tile 4 - Action 1"
 								}, {
-									icon : "add-photo"
+									icon : "add-photo",
+									actionTag: "Tile 4 - Action 2"
 								}, {
-									icon : "addresses"
+									icon : "addresses",
+									actionTag: "Tile 4 - Action 3"
 								}, {
-									icon : "badge"
+									icon : "badge",
+									actionTag: "Tile 4 - Action 4"
 								}
 					]
 				}, {
@@ -59,59 +70,77 @@ sap.ui.controller("prototypes.main", {
 					icon : "duplicate",
 					options : [
 								{
-									icon : "basket"
+									icon : "basket",
+									actionTag: "Tile 5 - Action 1"
 								}, {
-									icon : "bar-code"
+									icon : "bar-code",
+									actionTag: "Tile 5 - Action 2"
 								}, {
-									icon : "bookmark"
+									icon : "bookmark",
+									actionTag: "Tile 5 - Action 3"
 								}, {
-									icon : "card"
+									icon : "card",
+									actionTag: "Tile 5 - Action 4"
 								}, {
-									icon : "cart"
+									icon : "cart",
+									actionTag: "Tile 5 - Action 5"
 								}
 					]
 				}, {
-					title : "Tile 8",
+					title : "Tile 6",
 					icon : "globe",
 					iconColor : "#007cc0",
 					cssClass : "defaultActionClass",
 					options : [
 								{
-									icon : "search"
+									icon : "search",
+									actionTag: "Tile 6 - Action 1"
 								}, {
-									icon : "search"
+									icon : "search",
+									actionTag: "Tile 6 - Action 2"
 								}, {
-									icon : "search"
+									icon : "search",
+									actionTag: "Tile 6 - Action 3"
 								}, {
-									icon : "search"
+									icon : "search",
+									actionTag: "Tile 6 - Action 4"
 								}, {
-									icon : "search"
+									icon : "search",
+									actionTag: "Tile 6 - Action 5"
 								}, {
-									icon : "search"
+									icon : "search",
+									actionTag: "Tile 6 - Action 6"
 								}
 					]
 				}, {
-					title : "Tile 9",
+					title : "Tile 7",
 					icon : "appointment",
 					options : [
 								{
-									icon : "search"
+									icon : "search",
+									actionTag: "Tile 7 - Action 1"
 								}, {
-									icon : "search"
+									icon : "search",
+									actionTag: "Tile 7 - Action 2"
 								}, {
-									icon : "search"
+									icon : "search",
+									actionTag: "Tile 7 - Action 3"
 								}, {
-									icon : "search"
+									icon : "search",
+									actionTag: "Tile 7 - Action 4"
 								}, {
-									icon : "search"
+									icon : "search",
+									actionTag: "Tile 7 - Action 5"
 								}, {
-									icon : "search"
+									icon : "search",
+									actionTag: "Tile 7 - Action 6"
 								}, {
-									icon : "search"
+									icon : "search",
+									actionTag: "Tile 7 - Action 7"
 								}
 					]
 				}, {
-					title : "Tile 10",
+					title : "Tile 8",
 					icon : "manager"
 				}
 	],
@@ -119,25 +148,25 @@ sap.ui.controller("prototypes.main", {
 	onBeforeShow : function(oEvent) {
 
 		for ( var c in this.tiles) {
-			var tileItem1 = new controls.RoundedActionTile();
-			tileItem1.setTitle(this.tiles[c]["title"]);
-			tileItem1.setIcon("sap-icon://" + this.tiles[c]["icon"]);
+			var tileItem = new controls.RoundedActionTile();
+			tileItem.setTitle(this.tiles[c]["title"]);
+			tileItem.setIcon("sap-icon://" + this.tiles[c]["icon"]);
 			if (this.tiles[c]["cssClass"])
-				tileItem1.setCssClass(this.tiles[c]["cssClass"]);
+				tileItem.setCssClass(this.tiles[c]["cssClass"]);
 			if (this.tiles[c]["iconColor"])
-				tileItem1.setIconColor(this.tiles[c]["iconColor"]);
+				tileItem.setIconColor(this.tiles[c]["iconColor"]);
 			if (this.tiles[c]["options"]) {
-				tileItem1.setTileOptions(this.tiles[c]["options"]);
+				tileItem.setTileOptions(this.tiles[c]["options"]);
 			}
 
-			this.tiles[c].object = tileItem1;
+			this.tiles[c].object = tileItem;
 
-			tileItem1.attachPress({
+			tileItem.attachPress({
 				index : c
 			}, this.showOptions, this);
-			tileItem1.attachActionPress(this.handleAction, this);
+			tileItem.attachActionPress(this.handleAction, this);
 
-			this.getView().oTilesContainer.addTile(tileItem1);
+			this.getView().oTilesContainer.addTile(tileItem);
 		}
 	},
 
@@ -152,7 +181,10 @@ sap.ui.controller("prototypes.main", {
 	},
 
 	handleAction : function(oEvent, oParams) {
-		debugger;
+		if(oEvent.getParameter('action'))
+			alert(oEvent.getParameter('action').actionTag);
+		else
+			alert(oEvent.getParameter('id'));
 	}
 
 });
